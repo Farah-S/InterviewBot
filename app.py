@@ -1,5 +1,6 @@
 import streamlit as st
 from streamlit_custom_chat import ChatContainer
+# from custom_chat_bubble import ChatContainer
 from streamlit_custom_input import ChatInput
 from key_generator.key_generator import generate
 from helper_functions import set_bg_hack, set_page_container_style, refresh
@@ -24,7 +25,7 @@ def messageFromChatBot(message):
 # st.sidebar.subheader(‘1.please chose which app you want to operate’)
 
 #if there are no messages in the session add this one
-if len(st.session_state.messages) ==0:
+if len(st.session_state.messages) == 0:
     st.session_state.messages.append({"role":"assistant","content":"Hello! How may I help you?","key":0})
    
 col1, col2 = st.columns([2,13]) 
@@ -38,7 +39,7 @@ with col1:
     
 with col2:
     #component that displays the messages
-    ChatContainer(messages=st.session_state.messages, key="chatcontainer")
+    ChatContainer(messages=st.session_state.messages, key="chatcontainer", containerStyle={"backgroundColor":"#eeeeee"})
 
     # if st.button(label="assistant", key="assistant"):
     #     key = generate()
